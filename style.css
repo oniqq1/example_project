@@ -1,0 +1,150 @@
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+    font-family: 'PT Sans', sans-serif;
+    background: #fff;
+    color: #000;
+    scroll-behavior: smooth;
+}
+
+/* HEADER */
+.header {
+    position: fixed;
+    top:0;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    padding:20px 40px;
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+.header a {
+    color: #000;
+    margin-left:20px;
+    text-decoration:none;
+    font-weight:700;
+    transition:0.3s;
+}
+
+.header a:hover { color:#555; }
+
+/* HERO */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: url("images/bg1.jpg") center/cover no-repeat;
+    overflow: hidden;
+}
+
+.hero::after {
+    /* старый overlay можно удалить или оставить пустым */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* градиент от тёмного внизу к прозрачному сверху */
+    background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0));
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2; /* поверх overlay */
+    max-width: 800px;
+    color: #fff; /* текст белый */
+    text-shadow: 0px 4px 10px rgba(0,0,0,0.5); /* лёгкая тень для читаемости */
+}
+
+.hero h1 {
+    font-size: 60px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.hero p {
+    font-size: 22px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 40px;
+    border: 2px solid #fff;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #fff;
+    color: #000;
+}
+
+/* SECTIONS */
+.section {
+    padding:100px 20px;
+    text-align:center;
+}
+
+/* CARDS */
+.cards {
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+    margin-top:50px;
+}
+
+.card {
+    background: rgba(0,0,0,0.05);
+    padding:30px;
+    border-radius:20px;
+    width:280px;
+    transition:0.3s;
+}
+
+.card:hover { transform: translateY(-10px); background: rgba(0,0,0,0.1); }
+
+/* ADVANTAGES */
+.adv-grid { display:flex; justify-content:center; gap:40px; flex-wrap:wrap; margin-top:40px; font-weight:700; }
+
+/* GALLERY */
+.gallery-grid {
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-top:40px;
+}
+
+.gallery-grid img {
+    width:300px;
+    border-radius:15px;
+    transition:0.4s;
+}
+
+.gallery-grid img:hover { transform: scale(1.05); filter: grayscale(50%); }
+
+/* FADE-IN */
+.fade-in {
+    opacity:0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.fade-in.show {
+    opacity:1;
+    transform:translateY(0);
+}
