@@ -1,13 +1,21 @@
+// Fade-in при скролле
 const faders = document.querySelectorAll('.fade-in');
 
-const appearOptions = { threshold: 0.2 };
-
-const appearOnScroll = new IntersectionObserver((entries, observer) => {
+const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
-        if(!entry.isIntersecting) return;
+        if (!entry.isIntersecting) return;
         entry.target.classList.add('show');
-        observer.unobserve(entry.target);
+        obs.unobserve(entry.target);
     });
-}, appearOptions);
+}, {
+    threshold: 0.2
+});
 
-faders.forEach(fader => { appearOnScroll.observe(fader); });
+faders.forEach(el => observer.observe(el));
+
+// Появление сразу при загрузке (hero)
+window.addEventListener('load', () => {
+    document.querySelectorAll('.fade-in').forEach(el => {
+        el.classList.add('show');
+    });
+});
